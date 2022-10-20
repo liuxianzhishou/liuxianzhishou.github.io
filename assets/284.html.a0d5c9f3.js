@@ -1,0 +1,45 @@
+import{_ as n}from"./plugin-vue_export-helper.21dcd24c.js";import{o as s,c as a,e}from"./app.5aebcaaa.js";var t="/assets/img_21.8d26bd73.png",p="/assets/img_20.2629ebd1.png";const c={},o=e('<h1 id="_284-\u9876\u7AEF\u8FED\u4EE3\u5668" tabindex="-1"><a class="header-anchor" href="#_284-\u9876\u7AEF\u8FED\u4EE3\u5668" aria-hidden="true">#</a> \u{1F315}\u{1F315} 284. \u9876\u7AEF\u8FED\u4EE3\u5668</h1><p>\u96BE\u5EA6: \u{1F315}\u{1F315}</p><h3 id="\u95EE\u9898\u63CF\u8FF0" tabindex="-1"><a class="header-anchor" href="#\u95EE\u9898\u63CF\u8FF0" aria-hidden="true">#</a> \u95EE\u9898\u63CF\u8FF0</h3><p><img src="'+t+`" alt="img_21.png"></p><hr><h3 id="\u89E3\u6CD5" tabindex="-1"><a class="header-anchor" href="#\u89E3\u6CD5" aria-hidden="true">#</a> \u89E3\u6CD5</h3><div class="language-java ext-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">// Java Iterator interface reference:</span>
+<span class="token comment">// https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PeekingIterator</span> <span class="token keyword">implements</span> <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+    <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> iterator<span class="token punctuation">;</span>
+    <span class="token class-name">Integer</span> cacheNext<span class="token punctuation">;</span> <span class="token comment">// \u9996\u5148\u4FDD\u5B58\u4E0B\u4E00\u4E2A\u5143\u7D20\uFF0C\u8FD9\u6837 peek \u76F4\u63A5\u8FD4\u56DE\u8BE5\u5143\u7D20\uFF0C\u800C\u4E0D\u9700\u8981\u6307\u9488\u540E\u79FB</span>
+	<span class="token keyword">public</span> <span class="token class-name">PeekingIterator</span><span class="token punctuation">(</span><span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> iterator<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	    <span class="token comment">// initialize any member here.</span>
+	    <span class="token keyword">this</span><span class="token punctuation">.</span>iterator <span class="token operator">=</span> iterator<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+    <span class="token comment">// Returns the next element in the iteration without advancing the iterator.</span>
+	<span class="token keyword">public</span> <span class="token class-name">Integer</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>cacheNext <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cacheNext <span class="token operator">=</span> iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// \u8FD9\u91CC iterator \u7684\u6307\u9488\u5DF2\u7ECF\u540E\u79FB\u4E86</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> cacheNext<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token comment">// hasNext() and next() should behave the same as in the Iterator interface.</span>
+	<span class="token comment">// Override them if needed.</span>
+	<span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token class-name">Integer</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	    <span class="token comment">// \u5224\u65AD \u7F13\u5B58\u4E2D\u662F\u5426\u5B58\u5728</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>cacheNext <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Integer</span> res <span class="token operator">=</span> cacheNext<span class="token punctuation">;</span>
+            cacheNext <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// \u6E05\u7A7A\uFF0C\u65B9\u4FBF\u540E\u7EED\u5224\u65AD\u4E3A\u7A7A\u65F6\uFF0C\u8D4B\u503C\u65F6\u5B9E\u73B0\u6307\u9488\u7684\u540E\u79FB</span>
+            <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment">// \u7F13\u5B58\u4E2D\u4E0D\u5B58\u5728</span>
+            <span class="token keyword">return</span> iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// \u76F4\u63A5\u6307\u9488\u540E\u79FB</span>
+        <span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	    <span class="token keyword">if</span><span class="token punctuation">(</span>cacheNext <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> iterator<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment">// cacheNext != null \u8BF4\u660E\u540E\u7EED\u8282\u70B9\u80AF\u5B9A\u5B58\u5728</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h3 id="\u8F93\u51FA" tabindex="-1"><a class="header-anchor" href="#\u8F93\u51FA" aria-hidden="true">#</a> \u8F93\u51FA</h3><p><img src="`+p+'" alt="img_20.png"></p>',10),i=[o];function l(u,r){return s(),a("div",null,i)}var m=n(c,[["render",l],["__file","284.html.vue"]]);export{m as default};

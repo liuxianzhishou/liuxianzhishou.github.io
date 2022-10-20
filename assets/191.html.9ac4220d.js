@@ -1,0 +1,39 @@
+import{_ as n}from"./plugin-vue_export-helper.21dcd24c.js";import{o as s,c as a,e}from"./app.5aebcaaa.js";var p="/assets/img_22.bb31fdaa.png",t="/assets/img_21.25615d04.png",c="/assets/img_23.09cdfb4b.png";const i={},o=e('<h1 id="_191-\u4F4D1\u7684\u4E2A\u6570" tabindex="-1"><a class="header-anchor" href="#_191-\u4F4D1\u7684\u4E2A\u6570" aria-hidden="true">#</a> \u{1F315} \u{1F317} 191. \u4F4D1\u7684\u4E2A\u6570</h1><p>\u96BE\u5EA6: \u{1F315} \u{1F317}</p><h3 id="\u95EE\u9898\u63CF\u8FF0" tabindex="-1"><a class="header-anchor" href="#\u95EE\u9898\u63CF\u8FF0" aria-hidden="true">#</a> \u95EE\u9898\u63CF\u8FF0</h3><p><img src="'+p+`" alt="img_22.png"></p><hr><h3 id="\u89E3\u6CD5-1" tabindex="-1"><a class="header-anchor" href="#\u89E3\u6CD5-1" aria-hidden="true">#</a> \u89E3\u6CD5 1</h3><div class="language-java ext-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token comment">// you need to treat n as an unsigned value</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hammingWeight</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// \u601D\u8DEF\uFF1A</span>
+        <span class="token comment">// \u5FAA\u73AF\u53F3\u79FB 1 \u4F4D</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>n <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>n <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                res <span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            n <span class="token operator">&gt;&gt;&gt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h3 id="\u8F93\u51FA-1" tabindex="-1"><a class="header-anchor" href="#\u8F93\u51FA-1" aria-hidden="true">#</a> \u8F93\u51FA 1</h3><p><img src="`+t+`" alt="img_21.png"></p><hr><h3 id="\u89E3\u6CD5-2-\u9AD8\u7EA7\u4F4D\u8FD0\u7B97" tabindex="-1"><a class="header-anchor" href="#\u89E3\u6CD5-2-\u9AD8\u7EA7\u4F4D\u8FD0\u7B97" aria-hidden="true">#</a> \u89E3\u6CD5 2 - \u9AD8\u7EA7\u4F4D\u8FD0\u7B97</h3><div class="language-java ext-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token comment">// you need to treat n as an unsigned value</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hammingWeight</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// \u601D\u8DEF\uFF1A</span>
+        <span class="token comment">// \u501F\u52A9 n &amp; (n - 1) \u516C\u5F0F</span>
+        <span class="token comment">// \u901A\u8FC7\u8FD9\u4E2A\u516C\u5F0F\uFF0C\u53EA\u8981 n != 0 \u8BF4\u660E\u5FC5\u6709 1 \u7684\u5B58\u5728</span>
+        <span class="token comment">// \u90A3\u4E48 n - 1 \u5C31\u53EF\u4EE5\u5C06\u6700\u4F4E\u4F4D\u51FA\u73B0\u7684 1 \u53D8\u4E3A 0\uFF0C\u4E00\u76F4\u5FAA\u73AF\uFF0C\u76F4\u5230 n == 0</span>
+        <span class="token comment">// \u56E0\u6B64\u53EF\u4EE5\u901A\u8FC7\u8FDB\u884C\u4E86\u51E0\u6B21\u5FAA\u73AF\uFF0C\u5224\u65AD\u51FA\u6709\u591A\u5C11\u4E2A 1</span>
+        <span class="token comment">// \u4F8B\uFF1A</span>
+        <span class="token comment">// 01 10 11 00 01</span>
+        <span class="token comment">// 1. n &amp; (n - 1) =&gt; 01 10 11 00 00</span>
+        <span class="token comment">// 2. n &amp; (n - 1) =&gt; 01 10 10 00 00</span>
+        <span class="token comment">// 3. n &amp; (n - 1) =&gt; 01 10 00 00 00</span>
+        <span class="token comment">// 4. n &amp; (n - 1) =&gt; 01 00 00 00 00</span>
+        <span class="token comment">// 5. n &amp; (n - 1) =&gt; 00 00 00 00 00</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>n <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            n <span class="token operator">=</span> n <span class="token operator">&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res <span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h3 id="\u8F93\u51FA-2" tabindex="-1"><a class="header-anchor" href="#\u8F93\u51FA-2" aria-hidden="true">#</a> \u8F93\u51FA 2</h3><p><img src="`+c+'" alt="img_23.png"></p>',16),l=[o];function r(d,u){return s(),a("div",null,l)}var v=n(i,[["render",r],["__file","191.html.vue"]]);export{v as default};
